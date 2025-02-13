@@ -37,7 +37,7 @@ export const registerSuperAdmin = async (req, res) => {
         })
       );
     }
-
+console.log("Passwords do not match")
     // Check if SuperAdmin already exists
     const existingSuperAdmin = await SuperAdmin.findOne({ email });
     if (existingSuperAdmin) {
