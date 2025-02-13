@@ -202,10 +202,15 @@ export const getCompanies = async (req, res) => {
     const page = parseInt(req.query.page, 10) || 1;
     const limit = parseInt(req.query.limit, 10) || 10;
 
+    const status = req.query.status || "Active";
+
+    const query = status.toLowerCase() === "all" ? {} : { status };
+
     const { data: companies, pagination } = await paginateData(
       Company,
       page,
-      limit
+      limit,
+      query
     );
 
     return res.status(200).json(
