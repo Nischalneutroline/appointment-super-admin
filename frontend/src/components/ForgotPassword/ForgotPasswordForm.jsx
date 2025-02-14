@@ -1,34 +1,27 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { toast } from "sonner"
-const SigninForm = () => {
-  // Form data state
+
+const ForgotPasswordForm = () => {
   const [formData, setFormData] = React.useState({
     email: "",
-    password: "",
   })
 
-  // Submit handler
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(formData)
 
     // Form Input validation
-    if (!formData.email || !formData.password) {
-      toast.error("Please enter your email and password!")
+    if (!formData.email) {
+      toast.error("Please enter your email!")
       return
     }
 
     // Success message
-    toast.message("Logged in successfully!", {
-      description: "Monday, January 3rd at 6:00pm",
-    })
+    toast.success("Reset Link has been sent to you email!")
 
-    // Clear form data
-    setFormData({
-      email: "",
-      password: "",
-    })
+    //Clear form data
+    setFormData({ email: "" })
   }
 
   return (
@@ -36,7 +29,7 @@ const SigninForm = () => {
       {/*------------ Heading */}
       <div>
         <p className="m-[-5px] text-[18px]  tracking-wide font-[650] font-sans">
-          ADMIN SINGIN
+          FORGOT PASSWORD?
         </p>
         <p
           className="m-2.5 text-[13px] tracking-normal font-[50] font-sans text-[#575757] "
@@ -45,7 +38,7 @@ const SigninForm = () => {
             fontWeight: "400",
           }}
         >
-          Welcome! Please enter your details.
+          Please enter your email!
         </p>
       </div>
 
@@ -69,49 +62,14 @@ const SigninForm = () => {
             placeholder="Enter your email"
           />
         </div>
-        {/* +++++++++ Password */}
-        <div className="flex flex-col gap-1">
-          <label className="flex justify-start" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="h-12 rounded-lg shadow-sm placeholder:text-sm pl-4 focus:outline-none focus:placeholder-transparent "
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            placeholder="Enter your password"
-          />
-        </div>
-        {/* +++++++++ Remeber && Forgot Password */}
-        <div className="flex justify-between mt-2 ">
-          <div className="flex gap-2 ">
-            <input type="checkbox" id="remember" />
-            <label
-              htmlFor="remember"
-              className="text-gray-500 text-sm cursor-pointer"
-            >
-              Remeber me
-            </label>
-          </div>
-          <Link to={"/forgot-password"}>
-            <p className="text-sm text-gray-500 hover:text-black text-right">
-              Forgot password?
-            </p>
-          </Link>
-        </div>
 
         {/* ++++++++++ Sign up Button */}
-
         <div>
           <button
             type="submit"
             className="h-12 w-full bg-blue-600 rounded-lg text-white hover:opacity-90 hover:cursor-pointer transition-all duration-200 shadow-sm active:scale-98 active:translate-y-1"
           >
-            Sign in
+            Reset
           </button>
         </div>
       </form>
@@ -127,8 +85,8 @@ const SigninForm = () => {
         </div>
 
         {/* +++++++++++++ Admin Sign in */}
-        {/* 
-        <Link
+
+        {/* <Link
           to="/signup"
           className="text-blue-600 font-medium hover:underline"
         >
@@ -139,4 +97,4 @@ const SigninForm = () => {
   )
 }
 
-export default SigninForm
+export default ForgotPasswordForm

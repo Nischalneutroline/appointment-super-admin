@@ -9,6 +9,7 @@ import Header from "./components/Header/Header.jsx"
 import Home from "./pages/Home/Home.jsx"
 import Login from "./pages/Login/Login.jsx"
 import Signup from "./pages/Signup/Signup.jsx"
+import ForgorPassword from "./pages/ForgotPassword/page.jsx"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,8 +19,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgorPassword />} />
       </Routes>
     </div>
   )

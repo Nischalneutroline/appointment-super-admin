@@ -1,7 +1,7 @@
 import React from "react"
 
 const Home = () => {
-  return <div>Go to /login for Signin and /signup for Signup</div>
+  return <div>Home</div>
 }
 
 export default Home

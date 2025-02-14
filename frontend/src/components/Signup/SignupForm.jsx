@@ -1,7 +1,53 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { toast } from "sonner"
 
 const SignupForm = () => {
+  // Form data state
+  const [formData, setFormData] = React.useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  })
+
+  // Submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData)
+
+    // Password validation
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Password does not match!")
+      return
+    }
+
+    // Form Input validation
+    if (
+      !formData.email ||
+      !formData.fullName ||
+      !formData.phone ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      toast.error("Please enter all details!")
+      return
+    }
+
+    // Success message
+    toast.success("Account has been created successfully!")
+
+    // Clear form data
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+    })
+  }
+
   return (
     <div className="relative flex flex-col w-full md:w-[420px] ">
       {/*------------ Heading */}
@@ -16,13 +62,13 @@ const SignupForm = () => {
             fontWeight: "400",
           }}
         >
-          Please enter your details.
+          Please enter your details!
         </p>
       </div>
 
       {/*------------- Form */}
 
-      <form className="space-y-4 ">
+      <form className="space-y-4" onSubmit={handleSubmit}>
         {/* +++++++++ Full Name */}
         <div className="flex flex-col gap-1">
           <label className="text-sm flex justify-start ml-2" htmlFor="name">
@@ -33,6 +79,10 @@ const SignupForm = () => {
             type="name"
             name="name"
             id="name"
+            value={formData.fullName}
+            onChange={(e) =>
+              setFormData({ ...formData, fullName: e.target.value })
+            }
             placeholder="Enter your full name"
           />
         </div>
@@ -44,9 +94,13 @@ const SignupForm = () => {
           </label>
           <input
             className="h-12 rounded-lg shadow-sm placeholder:text-sm pl-4 focus:outline-none focus:placeholder-transparent  "
-            type="text"
+            type="email"
             name="email"
             id="email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             placeholder="Enter your email"
           />
         </div>
@@ -61,6 +115,10 @@ const SignupForm = () => {
             type="phone"
             name="phone"
             id="phone"
+            value={formData.phone}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
             placeholder="(123) 456-7890)"
           />
         </div>
@@ -74,6 +132,10 @@ const SignupForm = () => {
             type="password"
             name="password"
             id="password"
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             placeholder="Enter password"
           />
         </div>
@@ -81,15 +143,19 @@ const SignupForm = () => {
         <div className="flex flex-col gap-1">
           <label
             className="text-sm flex justify-start ml-2"
-            htmlFor="password1"
+            htmlFor="confirmPassword"
           >
             Confirm Password
           </label>
           <input
             className="h-12 rounded-lg shadow-sm placeholder:text-sm pl-4 focus:outline-none focus:placeholder-transparent "
             type="password"
-            name="password1"
-            id="password1"
+            name="confirmPassword"
+            id="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={(e) =>
+              setFormData({ ...formData, confirmPassword: e.target.value })
+            }
             placeholder="Confrim password"
           />
         </div>
@@ -114,7 +180,7 @@ const SignupForm = () => {
         {/* ++++++++++ Sign up Link */}
         <div className="flex justify-center gap-2">
           <p>Already have an account?</p>
-          <Link to="/login" className="text-blue-600 font-semibold">
+          <Link to="/signin" className="text-blue-600 font-semibold">
             Sign in
           </Link>
         </div>
