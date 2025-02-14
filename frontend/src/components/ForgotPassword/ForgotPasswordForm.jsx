@@ -25,7 +25,7 @@ const ForgotPasswordForm = () => {
   }
 
   return (
-    <div className="relative flex flex-col w-full md:w-[420px] ">
+    <div className="relative flex flex-col w-full  ">
       {/*------------ Heading */}
       <div>
         <p className="m-[-5px] text-[18px]  tracking-wide font-[650] font-sans">

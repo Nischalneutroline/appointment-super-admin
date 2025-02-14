@@ -2,7 +2,14 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { toast } from "sonner"
 
+// Icons
+import { FaRegEye } from "react-icons/fa6"
+import { FaRegEyeSlash } from "react-icons/fa6"
+
 const SignupForm = () => {
+  // Password visibility state
+  const [showPassword, setShowPassword] = React.useState(false)
+
   // Form data state
   const [formData, setFormData] = React.useState({
     fullName: "",
@@ -49,11 +56,11 @@ const SignupForm = () => {
   }
 
   return (
-    <div className="relative flex flex-col w-full md:w-[420px] ">
+    <div className="relative flex flex-col w-full ">
       {/*------------ Heading */}
       <div className="flex flex-col gap-1">
         <p className="m-[-5px] text-[18px]  tracking-wide font-[650] font-sans">
-          ADMIN SIGNUP
+          SUPER ADMIN SIGNUP
         </p>
         <p
           className=" text-[13px] tracking-normal font-[50] font-sans text-[#575757] "
@@ -124,20 +131,29 @@ const SignupForm = () => {
         </div>
         {/* +++++++++ Password */}
         <div className="flex flex-col gap-1">
-          <label className="text-sm flex justify-start ml-2" htmlFor="password">
+          <label className="flex justify-start" htmlFor="password">
             Password
           </label>
-          <input
-            className="h-12 rounded-lg shadow-sm placeholder:text-sm pl-4 focus:outline-none focus:placeholder-transparent "
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            placeholder="Enter password"
-          />
+          <div className="relative ">
+            <input
+              className="w-full h-12 rounded-lg shadow-sm placeholder:text-sm pl-4 focus:outline-none focus:placeholder-transparent "
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              placeholder="Enter your password"
+            />
+            {/* Eye Icon */}
+            <span
+              className="absolute top-4 right-2 opacity-50"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+            </span>
+          </div>
         </div>
         {/* +++++++++ Confirm Password */}
         <div className="flex flex-col gap-1">
@@ -185,6 +201,12 @@ const SignupForm = () => {
           </Link>
         </div>
         {/* +++++++++++++ Admin Sign in */}
+        <Link
+          to="/signin"
+          className="text-blue-600 font-medium hover:underline"
+        >
+          Admin Sign in
+        </Link>
       </div>
     </div>
   )
