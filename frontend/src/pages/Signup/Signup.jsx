@@ -8,9 +8,9 @@ const Signup = () => {
       {/* <div className="md:1/2 max-w-lg"> */}
       <Image />
       {/* </div> */}
-      {/* <div className="w-[80%] md:w-1/2 max-w-lg"> */}
-      <SignupForm />
-      {/* </div> */}
+      <div className="h-[600px]  w-full">
+        <SignupForm />
+      </div>
     </div>
   )
 }
