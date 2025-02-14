@@ -1,4 +1,4 @@
-# Super Admin Appointment
+Super Admin Appointment
 
 ## Frontend Implementation details
 
@@ -17,3 +17,10 @@
    - `npm install react-router-dom`
 
 4. Login and Signup Page Create
+
+5. Notification alert with | Sonner https://sonner.emilkowal.ski/
+
+   - follow docs it is very easy to setup on given link
+
+6. React Ions for icons
+   - npm i react-icons
