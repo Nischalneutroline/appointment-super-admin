@@ -1,8 +1,17 @@
-# React + Vite
+## Frontend Implementation details
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Vite Setup for frontend:
 
-Currently, two official plugins are available:
+   - `npm create vite@latest .` // in the current folder by dot symbol
+   - `npm install && npm run dev` // to run the setup project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. TailwindCSS setup for vite with react:
+
+   - `npm install tailwindcss @tailwindcss/vite`
+   - … follow the TailwindCSS latest v4 guide
+
+3. React Router Dom for Web App:
+
+   - `npm install react-router-dom`
+
+4. Login and Signup Page Create
