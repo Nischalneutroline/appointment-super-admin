@@ -4,9 +4,9 @@ import React from "react"
 
 function Image() {
   return (
-    <div className="w-full  overflow-hidden">
+    <div className="min-w-xs max-w-sm align-super ">
       <img
-        className="px-2 w-full md:w-[600px] md:h-[600px] md:px-0 object-cover"
+        className="mx-auto w-[300px] md:w-[600px] md:h-[600px] md:px-0 object-cover"
         // className=" object-cover"
         src={neutrosys}
         alt="neutrosys"

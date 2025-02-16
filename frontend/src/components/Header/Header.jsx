@@ -21,7 +21,7 @@ const Header = () => (
         src={Neutrologo}
         alt="neutrosys"
       ></img>
-      <h1 className="text-[22px] font-[600]">Neutroline Pvt. Ltd.</h1>
+      <h1 className="text-2xl text-black font-[600]">Neutroline Pvt. Ltd.</h1>
     </div>
   </nav>
 )
